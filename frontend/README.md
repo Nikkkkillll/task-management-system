@@ -78,12 +78,37 @@ task-management-system/
 cd backend
 ```
 
-2. Install dependencies:
+2. Initialize npm (if package.json doesn't exist)
+```bash
+npm npm init -y
+```
+
+3. Install Production Dependencies
 ```bash
 npm install express mongoose bcryptjs jsonwebtoken cors dotenv
 ```
+4. Install Development Dependencies
+```bash
+npm install --save-dev nodemon
+```
 
-3. Create `.env` file:
+5. Verify Installation
+```bash
+npm list --depth=0
+```
+Expected output:
+```
+backend@1.0.0
+├── bcryptjs@2.4.3
+├── cors@2.8.5
+├── dotenv@16.3.1
+├── express@4.18.2
+├── jsonwebtoken@9.0.2
+├── mongoose@8.0.3
+└── nodemon@3.0.2
+```
+
+6. Create `.env` file:
 ```bash
 PORT=5000
 MONGODB_URI=your_mongodb_connection_string
@@ -91,7 +116,7 @@ JWT_SECRET=your_jwt_secret
 NODE_ENV=development
 ```
 
-4. Start the backend server:
+7. Start the backend server:
 ```bash
 npm run dev
 ```
@@ -105,17 +130,55 @@ Backend will run on `http://localhost:5000`
 cd frontend
 ```
 
-2. Install dependencies:
+2. Create Vite React App (if starting fresh)
+```bash
+npm create vite@latest . -- --template react
+Note: If the directory already has package.json, skip this step.
+```
+3. Install Base Dependencies
 ```bash
 npm install
 ```
 
-3. Create `.env` file in frontend:
+4. Install Additional Dependencies
+```bash
+npm install react-router-dom axios lucide-react
+```
+
+5. Install Tailwind CSS
+```bash
+npm install -D tailwindcss postcss autoprefixer
+```
+
+6. Initialize Tailwind
+```bash
+npx tailwindcss init -p
+```
+
+7. Verify Installation
+```bash
+npm list --depth=0
+```
+Expected output:
+```
+task-management-frontend@1.0.0
+├── axios@1.6.2
+├── lucide-react@0.294.0
+├── react@18.2.0
+├── react-dom@18.2.0
+├── react-router-dom@6.20.1
+├── autoprefixer@10.4.16
+├── postcss@8.4.32
+├── tailwindcss@3.3.6
+└── vite@5.0.8tailwindcss init -p
+```
+
+8. Create `.env` file in frontend:
 ```bash
 VITE_API_URL=http://localhost:5000/api
 ```
 
-4. Start the frontend:
+9. Start the frontend:
 ```bash
 npm run dev
 ```
